@@ -1,0 +1,87 @@
+body {
+  font: 10px sans-serif;
+}
+
+.bar {
+  fill: #bdbdbd;
+  shape-rendering: crispEdges;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.y.axis path {
+  display: none;
+}
+
+#map {
+      background-color: #fff;
+      border: 1px solid #ccc;
+    }
+.background {
+  fill: none;
+  pointer-events: all;
+}
+#countries, #states {
+  fill: #cde;
+  stroke: #fff;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+#countries .active, #states .active {
+  fill: #89a;
+}
+#cities {
+  stroke-width: 0;
+}
+.city {
+  fill: #345;
+  stroke: #fff;
+}
+pre.prettyprint {
+  border: 1px solid #ccc;
+  margin-bottom: 0;
+  padding: 9.5px;
+}
+
+div.tooltip {   
+  position: absolute;           
+  text-align: center;           
+  width: 60px;                  
+  height: 28px;                 
+  padding: 2px;             
+  font: 12px sans-serif;        
+  background: white;   
+  border: 1px;
+  border-style: solid;
+  border-color: black;     
+  border-radius: 8px;           
+  pointer-events: none;         
+}
+
+.subunit-label {
+  fill: #777;
+  fill-opacity: 0;
+  cursor: pointer;
+  font-size: 4px;
+  font-weight: 300;
+  text-anchor: middle;
+}
+
+#container{
+  position: relative;
+}
+
+#buttons{
+  position: absolute;
+}

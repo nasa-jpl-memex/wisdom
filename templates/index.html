@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<title>WISDOM</title>
+
+<body>
+<link href='/static/vendor/bootstrap-3.3.6/css/bootstrap.min.css' rel='stylesheet' type='text/css'/>
+<link href='/static/style.css' rel='stylesheet' type='text/css'/>
+
+<script src="/static/kde.json"></script>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="/static/vendor/jquery-2.2.0.min.js"></script>
+<script src="/static/vendor/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header" style="text-align: center; width: 100%; left: 50%;">
+      <a class="navbar-brand" href="#" style="font-size:18pt; margin-right: 20px; font-weight:bold; margin-left: 22%" >Weapons</a>
+      <a class="navbar-brand" href="#" style="font-size:36pt; color: white;" >W</a>
+      <a class="navbar-brand" href="#" style="font-size:10pt;" >idespread</a>
+      <a class="navbar-brand" href="#" style="font-size:36pt; color: white;" >I</a>
+      <a class="navbar-brand" href="#" style="font-size:10pt;" >ntelligent</a>
+      <a class="navbar-brand" href="#" style="font-size:36pt; color: white;" >S</a>
+      <a class="navbar-brand" href="#" style="font-size:10pt;" >ystem</a>
+      <a class="navbar-brand" href="#" style="font-size:10pt;" >for</a>
+      <a class="navbar-brand" href="#" style="font-size:36pt; color: white;" >D</a>
+      <a class="navbar-brand" href="#" style="font-size:10pt;" >omain</a>
+      <a class="navbar-brand" href="#" style="font-size:36pt; color: white;" >O</a>
+      <a class="navbar-brand" href="#" style="font-size:10pt;" >utlier</a>
+      <a class="navbar-brand" href="#" style="font-size:36pt; color: white;" >M</a>
+      <a class="navbar-brand" href="#" style="font-size:10pt;" >onitoring</a>
+    </div>
+  </div>
+</nav>
+<div id="container" style="margin-top: -20px;">
+    <div id="buttons"></div>
+    <div id="map"></div>
+</div>
+
+
+<script src="/static/buttons.js"></script>
+<script src="/static/kde.js"></script>
+<script src="/static/time-series.js"></script>
+<script src="/static/geo/map.js"></script>
+
+<script>
+
+for(q in msg){
+    estimates = []
+    for (k in msg[q].result.kde){
+        if(Math.max.apply(null,msg[q].result.kde) > .05){
+            estimates.push(msg[q].result.kde[k] * 5);
+        }else if(Math.max.apply(null,msg[q].result.kde) > .01){
+            estimates.push(msg[q].result.kde[k] * 10);
+        }else if(Math.max.apply(null,msg[q].result.kde) > .005){
+            estimates.push(msg[q].result.kde[k] * 30);
+        }else{
+            estimates.push(msg[q].result.kde[k] * 80);
+        }
+    };
+    msg[q].result.kde = estimates;
+}
+
+var red_cutoff = .03;
+var yellow_cutoff = .07;
+
+var most_recent = 2;
+
+var current_weapon = "gun";
+
+map(msg, "gun");
+build_buttons(msg);
+
+</script>cir
+
+
+</body>
+</html>
