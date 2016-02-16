@@ -54,7 +54,7 @@ unique_types = get_unique(
                     '&indent=true' +
                     '&facet=on' +
                     '&facet.field=ner_weapon_type_ts_md' +
-                    '&facet.limit=20', 
+                    '&facet.limit=30', 
                     "ner_weapon_type_ts_md" #field
                 )
 
@@ -62,7 +62,7 @@ unique_types = get_unique(
 results = []
 cnt = 1
 for loc in unique_locs:
-    print str(cnt) + " out of 1000"
+    print str(cnt) + " out of 1000 - " + loc
     cnt += 1
 
     # convert city to coordinates
@@ -82,7 +82,6 @@ for loc in unique_locs:
     #deal with encoding issues later
     try:
         loc.encode('utf-8')
-        loc.encode('ascii')
     except:
         continue
     
@@ -108,7 +107,7 @@ for loc in unique_locs:
                         '&group.facet=true' +
                         '&timeAllowed=10000')
             except:
-                print "solr query issue with " + str(location) + " and " + str(weapon_type)
+                print "solr query issue"
 
             #dictionary of {day: count}
             if bool(result) != False:
