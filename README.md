@@ -12,23 +12,24 @@ By hovering over circles, density estimates, histograms, and trends for given lo
 ### Notes on data
 - For this prototype, ads found on days between 9-20-15 and 10-19-15 were queried as this was the primary period when data was crawled by the Memex Weapons team.
 - Not all weapon type / city combos have been included
-- Kernel densities have been manually inflated due to limited data (less data -> less certainty about distribution -> low densities)
+- Kernel densities have been manually to better represent densities derived from more data
 
 ### Setup
 * [Solr] - Data in Solr index containing crawled weapons data
-* anomaly-pre.py - Python script used to make aggregation queries from Solr index and pre-process density estimates 
+* anomaly-pre.py - Makes aggregation queries from Solr index and pre-processes density estimates 
 * [map.js] - draw d3-based world map using [Topojson] and add circles according to json data generated from anomaly-pre.py. Map building based on http://bost.ocks.org/mike/map/ and  http://www.tnoda.com/blog/2013-12-07
 * When circles are hovered, functions called from [time-series.js] and [kde.js] to draw on d3 tooltip
 * Buttons for weapons types drawn in [button.js] using [Bootstrap] styling
-* Served using [Flask]
+* Served with [Flask]
 
 ### To-Dos and Ideas
+- Create small ontology to link and categorize weapon names
+- Evaluate performance around known weapon events (legislation changes, shootings, etc.). Potentially crawl news sources for relevant events their locations.
+- Link to/query weapons Facetview for given location, weapon type, and date combinations
 - Allow user to set time window (if more crawl data becomes available)
 - Allow analysis by country as well as by city
-- U.S.-only interface
 - Make eastern seaboard cities less congested in viz
-- Scale weapons buttons to hundreds of selections
-- Evaluate performance around known weapon events
+
 
 
 

@@ -2,21 +2,26 @@
 <html>
 <meta charset="utf-8">
 <title>WISDOM</title>
+<head>
 
-<body>
 <link href='/static/vendor/bootstrap-3.3.6/css/bootstrap.min.css' rel='stylesheet' type='text/css'/>
 <link href='/static/style.css' rel='stylesheet' type='text/css'/>
 
 <script src="/static/kde2.json"></script>
-<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="/static/vendor/d3.min.js"></script>
 <script src="/static/vendor/jquery-2.2.0.min.js"></script>
 <script src="/static/vendor/bootstrap-3.3.6/js/bootstrap.min.js"></script>
-<script src="//d3js.org/topojson.v1.min.js"></script>
+<script src="/static/vendor/topojson.min.js"></script>
+
+
+</head>
+
+<body>
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
-    <div class="navbar-header" style="text-align: center; width: 100%; left: 50%;">
-      <a class="navbar-brand" href="#" style="font-size:18pt; margin-right: 20px; font-weight:bold; margin-left: 22%" >Weapons</a>
+    <div class="navbar-header" style="text-align: center; width: 100%;">
+      <a class="navbar-brand" href="#" style="font-size:18pt; margin-right: 20px; font-weight:bold; margin-left: 15%" >Weapons</a>
       <a class="navbar-brand" href="#" style="font-size:36pt; color: white;" >W</a>
       <a class="navbar-brand" href="#" style="font-size:10pt;" >idespread</a>
       <a class="navbar-brand" href="#" style="font-size:36pt; color: white;" >I</a>
@@ -30,7 +35,9 @@
       <a class="navbar-brand" href="#" style="font-size:10pt;" >utlier</a>
       <a class="navbar-brand" href="#" style="font-size:36pt; color: white;" >M</a>
       <a class="navbar-brand" href="#" style="font-size:10pt;" >onitoring</a>
+      <span id="info" class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
     </div>
+
   </div>
 </nav>
 <div id="container" style="margin-top: -20px;">
@@ -43,6 +50,7 @@
 <script src="/static/kde.js"></script>
 <script src="/static/time-series.js"></script>
 <script src="/static/geo/map.js"></script>
+<script src="/static/info.js"></script>
 
 <script>
 
@@ -50,11 +58,11 @@ for(q in msg){
     estimates = []
     for (k in msg[q].result.kde){
         if(Math.max.apply(null,msg[q].result.kde) > .05){
-            estimates.push(msg[q].result.kde[k] * 5);
+            estimates.push(msg[q].result.kde[k] * 3);
         }else if(Math.max.apply(null,msg[q].result.kde) > .01){
             estimates.push(msg[q].result.kde[k] * 10);
         }else if(Math.max.apply(null,msg[q].result.kde) > .005){
-            estimates.push(msg[q].result.kde[k] * 30);
+            estimates.push(msg[q].result.kde[k] * 25);
         }else{
             estimates.push(msg[q].result.kde[k] * 40);
         }
@@ -67,12 +75,14 @@ var yellow_cutoff = .07;
 
 var most_recent = 2;
 
+var min_sum_of_counts = 100;
+
 var current_weapon = "gun";
 
 map(msg, "gun");
 build_buttons(msg);
 
-</script>cir
+</script>
 
 
 </body>

@@ -115,9 +115,10 @@ function kde_plot(estimates, counts, location, weapon_type, days){
        .attr("x2", (x(counts[counts.length - most_recent])))
        .style("opacity", .6)
        .attr( "stroke", function(){
-            if (estimates[estimates.length - most_recent] <= red_cutoff){
+            if (estimates[estimates.length - most_recent] <= red_cutoff && Math.max.apply(null, estimates) > .05){
                 return "red";
-            }else if(estimates[estimates.length - most_recent] < yellow_cutoff && estimates[estimates.length - most_recent] > red_cutoff){
+            }else if(estimates[estimates.length - most_recent] < yellow_cutoff && estimates[estimates.length - most_recent] > red_cutoff
+                && Math.max.apply(null, estimates) > .05){
                 return "yellow";
             }else{
                 return "green";

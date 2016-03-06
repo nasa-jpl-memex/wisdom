@@ -69,7 +69,25 @@ div.tooltip {
   pointer-events: none;         
 }
 
-.subunit-label {
+.subunit-label-red{
+  fill: #777;
+  fill-opacity: 0;
+  cursor: pointer;
+  font-size: 4px;
+  font-weight: 300;
+  text-anchor: middle;
+}
+
+.subunit-label-yellow{
+  fill: #777;
+  fill-opacity: 0;
+  cursor: pointer;
+  font-size: 4px;
+  font-weight: 300;
+  text-anchor: middle;
+}
+
+.subunit-label-green{
   fill: #777;
   fill-opacity: 0;
   cursor: pointer;
@@ -85,3 +103,128 @@ div.tooltip {
 #buttons{
   position: absolute;
 }
+
+#buttons div{
+  text-align: center; 
+  margin-bottom: -15px; 
+  margin-top: 5px;
+}
+
+#buttons div div{
+  width: 220px;
+  margin-left: 13px; 
+  margin-top: 15px; 
+  margin-bottom: 10px;  
+  display: inline-block; 
+  float: left;
+}
+
+#buttons div div button{
+  display: inline-block; 
+  float: left; 
+  color: black;  
+  width: 68px;
+  cursor: default;
+}
+
+#buttons div div button#green_filter{
+  background-color: green;
+  color: white;
+}
+
+#buttons div div button#yellow_filter{
+  background-color: yellow;
+  color: black; 
+}
+
+#buttons div div button#red_filter{
+  background-color: red;
+  color: white;
+}
+
+#buttons div div#button_scroll{
+  height: 500px; 
+  margin-top: 20px; 
+  overflow: scroll;
+  margin-left: 0px;
+}
+
+#buttons div div#button_scroll.list-group button.list-group-item{
+  padding: 4px; 
+  margin-left: 10px;  
+  margin-bottom: 3.5px; 
+  margin-top: 0;
+  font-size: 12pt;
+  background-color: white; 
+  color: #080808;
+  border-color: gray; 
+  width: 195px;
+  cursor: pointer;
+}
+
+#buttons span#current_weapon {
+  font-size: 12pt; 
+  margin-left: -4px;
+}
+
+#buttons div button.list-group-item {
+  margin-left: 10px; 
+  font-size: 14pt; 
+  margin-bottom: -15px; 
+  background-color: #222; 
+  color: white; 
+  border-color: #080808; 
+  margin-top: 25px; 
+  width: 210px; 
+  curser: default;
+}
+
+#buttons div div input.form-control {
+  width: 64px; 
+  display: inline-block; 
+  float: left; 
+  border-width: 3px; 
+  opacity: .7;
+}
+
+#buttons div div input.form-control#red_alarm {
+  border-color: red; 
+}
+
+#buttons div div input.form-control#yellow_alarm {
+  border-color: yellow; 
+}
+
+#buttons div div button#update_thresholds {
+  display: inline-block; 
+  float: left; 
+  width: 80px;
+}
+
+#info{
+  font-size: 20pt;
+  color: white;
+  float: right;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+#weapon_info{
+  font-size: 14pt;
+  color: white;
+  float: right;
+  cursor: pointer;
+}
+
+#info_tooltip{
+  font-size: 11pt;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+
+
+
+
+
+
