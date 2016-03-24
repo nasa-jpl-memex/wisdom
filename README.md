@@ -35,7 +35,7 @@ By hovering over circles, density estimates, histograms, and trends for given lo
         "lon": -81.0345147,
         "lat": 25.8573208,
         "location": "Orlando",
-        "weapon_type": "gun",
+        "weapon_type": "shotgun",
         "day": [
             "2015-09-20T00:00:01Z",
             "2015-09-21T00:00:01Z",
