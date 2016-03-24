@@ -19,11 +19,11 @@ By hovering over circles, density estimates, histograms, and trends for given lo
 {
     "result": {
         "cnt": [
-            17,
-            157,
-            78,
-            95,
-            106
+            30,
+            120,
+            65,
+            88,
+            14
         ],
         "kde": [
             0.3573358545766995,
@@ -34,7 +34,7 @@ By hovering over circles, density estimates, histograms, and trends for given lo
         ],
         "lon": -81.0345147,
         "lat": 25.8573208,
-        "location": "Oasis Ranger Station-U.S. Government Airport",
+        "location": "Orlando",
         "weapon_type": "gun",
         "day": [
             "2015-09-20T00:00:01Z",
