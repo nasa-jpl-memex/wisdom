@@ -3,8 +3,6 @@ function add(a, b) {
 }
 
 function map(kde_data, weapon_type){
-	console.log(kde_data)
-	console.log(weapon_type)
 
 	//clear when updating weapon type
 	d3.select("#main").remove();
