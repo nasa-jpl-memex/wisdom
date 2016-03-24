@@ -13,6 +13,38 @@ By hovering over circles, density estimates, histograms, and trends for given lo
 - For this prototype, ads found on days between 9-20-15 and 10-19-15 were queried as this was the primary period when data was crawled by the Memex Weapons team.
 - Not all weapon type / city combos have been included
 - Kernel densities have been manually to better represent densities derived from more data
+- 
+### Processed data sample
+{
+    "result": {
+        "cnt": [
+            17,
+            157,
+            78,
+            95,
+            106
+        ],
+        "kde": [
+            0.3573358545766995,
+            0.21589122216023643,
+            0.4010007924412533,
+            0.40468796088292356,
+            0.40693564034103256
+        ],
+        "lon": -81.0345147,
+        "lat": 25.8573208,
+        "location": "Oasis Ranger Station-U.S. Government Airport",
+        "weapon_type": "gun",
+        "day": [
+            "2015-09-20T00:00:01Z",
+            "2015-09-21T00:00:01Z",
+            "2015-09-22T00:00:01Z",
+            "2015-09-23T00:00:01Z",
+            "2015-09-24T00:00:01Z",
+            
+        ]
+    }
+}
 
 ### Setup
 * [Solr] - Data in Solr index containing crawled weapons data
