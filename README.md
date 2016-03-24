@@ -1,7 +1,7 @@
 # WISDOM
 (**W**idespread **I**ntelligent **S**ystem for **D**omain **O**utlier **M**onitoring)
 
-WISDOM uses scipy's implementation of Kernel Density Estimation (KDE) to build density estimates for daily counts of weapon ads faceted by weapon type and city (both extracted using NER from crawled weapons data). Daily counts that have low densities are flagged as anomalous and indicated in the interface by a pulsing red circle. Density cutoff for an anomaly can be adjusted by user in interface.
+WISDOM uses scipy's implementation of Kernel Density Estimation (KDE) to build density estimates for daily counts of weapon ads faceted by weapon type and city (both extracted using NER from crawled weapons data). Daily counts that have low densities are flagged as anomalous and indicated in the interface by red circle. Density cutoff for an anomaly can be adjusted by user in interface.
 
 ![alt tag](https://github.com/khundman/MEMEX-WISDOM/blob/master/screenshots/main.png)
 
@@ -13,8 +13,9 @@ By hovering over circles, density estimates, histograms, and trends for given lo
 - For this prototype, ads found on days between 9-20-15 and 10-19-15 were queried as this was the primary period when data was crawled by the Memex Weapons team.
 - Not all weapon type / city combos have been included
 - Kernel densities have been manually to better represent densities derived from more data
-- 
+
 ### Processed data sample
+```javascript
 {
     "result": {
         "cnt": [
@@ -41,23 +42,25 @@ By hovering over circles, density estimates, histograms, and trends for given lo
             "2015-09-22T00:00:01Z",
             "2015-09-23T00:00:01Z",
             "2015-09-24T00:00:01Z",
-            
         ]
     }
 }
+```
 
 ### Setup
 * [Solr] - Data in Solr index containing crawled weapons data
 * anomaly-pre.py - Makes aggregation queries from Solr index and pre-processes density estimates 
 * [map.js] - draw d3-based world map using [Topojson] and add circles according to json data generated from anomaly-pre.py. Map building based on http://bost.ocks.org/mike/map/ and  http://www.tnoda.com/blog/2013-12-07
 * When circles are hovered, functions called from [time-series.js] and [kde.js] to draw on d3 tooltip
+* When circles are clicked, submit query with weapon, location, time parameters to facetview
 * Buttons for weapons types drawn in [button.js] using [Bootstrap] styling
 * Served with [Flask]
 
 ### To-Dos and Ideas
-- Create small ontology to link and categorize weapon names
+- Run all combinations of weapons, locations
+- Update with improved weapons facets (split by category, not tokenized) once available
+- Client-side speed improvements
 - Evaluate performance around known weapon events (legislation changes, shootings, etc.). Potentially crawl news sources for relevant events their locations.
-- Link to/query weapons Facetview for given location, weapon type, and date combinations
 - Allow user to set time window (if more crawl data becomes available)
 - Allow analysis by country as well as by city
 - Make eastern seaboard cities less congested in viz
